@@ -1,0 +1,28 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: drill
+spec:
+  selector: {}
+  template:
+    metadata:
+      name: drill
+    spec:
+      volumes:
+        - name: benchmarks
+          configMap:
+            name: drillbenchmark
+            defaultMode: 420
+      containers:
+        - name: pi
+          image: 'quay.io/jaysonzhao/drill:v5'
+          command:
+            - /usr/local/bin/drill
+          args:
+            - '--stats'
+            - '--benchmark'
+            - /drillb/benchmark.yml
+          volumeMounts:
+            - name: benchmarks
+              mountPath: /drillb
+      restartPolicy: Never

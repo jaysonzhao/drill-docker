@@ -1,0 +1,17 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: drillbenchmark
+data:
+  benchmark.yml: |
+    ---
+    threads: 1
+    base: 'http://baidu.com'
+    iterations: 20
+    rampup: 5
+
+    plan:
+      - name: Fetch baidu.com
+        request:
+          url: /
+

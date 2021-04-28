@@ -1,6 +1,6 @@
-FROM rust:1.37-slim-stretch as cargo-build
+FROM rust:slim-stretch as cargo-build
 
-ARG DRILL_VERSION=0.5.0
+ARG DRILL_VERSION=0.7.0
 ARG OPENSSL_VERSION=1.0.2r
 
 RUN apt-get update && \
@@ -37,4 +37,6 @@ FROM alpine:20190707
 
 COPY --from=cargo-build /src/drill/target/x86_64-unknown-linux-musl/release/drill /usr/local/bin/drill
 
-ENTRYPOINT ["/usr/local/bin/drill"]
+#ENTRYPOINT ["/usr/local/bin/drill","-b /drillb/benchmark.yml","-s"]
+ENTRYPOINT ["sleep"]
+CMD ["36000"]

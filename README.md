@@ -1,10 +1,18 @@
 # drill-docker
 
-[![docker build](https://img.shields.io/docker/cloud/build/xridge/drill.svg)](https://hub.docker.com/r/xridge/drill)
-[![docker pulls](https://img.shields.io/docker/pulls/xridge/drill.svg)](https://hub.docker.com/r/xridge/drill)
 [![license](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 [drill](https://github.com/fcsonline/drill) (http load tester) docker image based on Alpine Linux.
+
+
+## Usage in OCP
+```bash
+oc apply -f benchmarkcm.yml
+oc apply -f job.yml
+```
+
+
+
 
 ## Usage
 ```bash
